@@ -1,0 +1,65 @@
+<br>
+<br>
+<h2 style="text-align: center; font: bold; margin-top: 4em;"><b><i>Our Products</i></b></h2>
+
+<form action="/add-to-cart" method="post" style="height: auto;">
+    <div class="container">
+        <div class="row gy-2">
+            <% let count=0; %>
+                <% for(let type of pizzaData) {%>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1">
+                        <div class="col">
+                            <img id="img" src="<%= type.img %>" alt="Image not available">
+                        </div>
+                        <div class="col " id="pizza-info-column" style="font-size: 70%;">
+                            <p>
+                                <b>
+                                    <%=type.name %>
+                                </b>
+                            </p>
+                            <p>
+                                <b>
+                                    <%= type.discription %>
+                                </b>
+                            </p>
+                            <p>
+                                <span><b>Crust: </b>
+                                    <%= type.crust %>
+                                </span>
+                                <br>
+                                <span>
+                                    <b> Price:RS</b>
+                                    <%= type.price %>
+                                </span>
+                                <br>
+                                <span><b>Size:</b>
+                                    <%= type.Size %>
+                                </span>
+                                <br>
+                                <span>
+
+                                    <!-- <span><b><i>Quantity</i></b></span> -->
+                                    <select name="Quantity">
+                                        <option value="Quantity">Quantity</option>
+                                        <option value="1">one</option>
+                                        <option value="2">two</option>
+                                        <option value="3">three</option>
+                                        <option value="4">four</option>
+                                        <option value="5">five</option>
+                                    </select>
+
+                                </span>
+                        </div>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+    <!-- style="margin-left: 47%; margin-top: 4em;" -->
+    <div class="submitdata">
+        <button id="submit"><a><b>Place
+                    Order</b></a>
+        </button>
+    </div>
+
+</form>
+<br>

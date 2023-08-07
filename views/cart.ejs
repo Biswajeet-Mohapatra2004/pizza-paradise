@@ -1,0 +1,114 @@
+<%- include('./Components/head.ejs') %>
+
+    <body>
+        <%- include('./Components/navbar') %>
+            <h2 style="text-align: center;">My Cart</h2>
+            <% if (!count) { %>
+                <div class="container-fluid" style="height: 40em;">
+                    <div class="row" style="font-size: 70%;">
+                        <div class="col-12" style="height: 35em;">
+                            <img style="width: 70%; height: 95%; margin-left: 15%;"
+                                src="https://588773510-files.gitbook.io/~/files/v0/b/gitbook-legacy-files/o/assets%2F-Lz7UFvjOB-fzWNJ7GjT%2F-M6qLK-SWrk1gacEZduR%2F-M6qQ58_Pzi3bE2enWer%2Fimage.png?alt=media&token=d5d18a42-bb5b-426e-83cf-a703508b3eb8">
+                        </div>
+                    </div>
+                </div>
+                <% }else{ %>
+                    <% let ammount=0; %>
+                        <div class="container" style="height: auto; ">
+                            <div class="row" style="font-size: 70%;">
+                                <% for( let i=0; i < Quantity.length; i++ ) { %>
+                                    <% if (Quantity[i]>0) { %>
+                                        <div
+                                            class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1">
+                                            <div class="col">
+                                                <img id="img" src="<%= pizzaData[i].img %>" alt="Image not available">
+                                            </div>
+                                            <div class="col" id="pizza-info-column">
+                                                <p>
+                                                    <%=pizzaData[i].name %>
+                                                </p>
+                                                <p>
+                                                    <b>
+                                                        <%= pizzaData[i].discription %>
+                                                    </b>
+                                                </p>
+                                                <p>
+                                                    <span><b>Crust: </b>
+                                                        <%= pizzaData[i].crust %>
+                                                    </span>
+                                                    <br>
+                                                    <span>
+                                                        <b> Price:</b>
+                                                        <%= pizzaData[i].price %>
+                                                            <% ammount=ammount+parseInt(pizzaData[i].price) *
+                                                                Quantity[i]%>
+                                                    </span>
+                                                    <br>
+                                                    <span><b>Size:</b>
+                                                        <%= pizzaData[i].Size %>
+                                                    </span>
+                                                    <span>
+                                                        <span><b><i>Quantity <%= Quantity[i] %></i></b></span>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                        <% } %>
+
+                                            <% } %>
+
+                            </div>
+                        </div>
+                        <div class="container-fluid" style="height: 10em; ">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 offset-xl-3 offset-lg-3 offset-md-3"
+                                    style=" background-color: rgb(74, 74, 230); color: white; text-align: center;">
+                                    <h4>Billing</h4>
+                                    <span><b>Price: RS</b>
+                                        <%= ammount %>
+                                    </span>
+                                    <br>
+                                    <span><B>CGST:(3%) RS:</B>
+                                        <%= (3*ammount)/100 %>
+                                    </span>
+                                    <br>
+                                    <span><B>SGST:(3%) RS:</B>
+                                        <%= (3*ammount)/100 %>
+                                    </span>
+                                    <br>
+                                    <span>
+                                        <b>Delivery Charge:RS 25 %></b>
+                                    </span>
+                                    <br>
+                                    <span>
+                                        <b>Total Price: Rs<%=ammount+ (6*ammount)/100 +5 %></b>
+                                    </span>
+                                </div>
+                                <!--  offset-xl-5 offset-lg-5 offset-md-5 -->
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12"
+                                    style=" background-color: rgb(74, 74, 230); color: white; text-align: center; ">
+                                    <h4 style="color: red;">Delivery Address</h4>
+
+                                    <span>
+                                        <%= user.address %>
+                                    </span>
+                                    <br>
+                                    <span>Contact Number: <%= user.contact %></span>
+
+                                    <button onclick=<%="PlaceOrder()" %>>Place Order </button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <% } %>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <%- include('./Components/footer.ejs') %>
+    </body>
+
+    </html>

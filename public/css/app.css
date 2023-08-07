@@ -1,0 +1,99 @@
+header {
+    margin-top: 2em;
+    height: 4em;
+    border-top-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+    background-color: rgb(228, 174, 74);
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+#links {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.col-3 {
+    margin-top: 2em;
+    /* border: 2px solid black; */
+    height: 25em;
+    border-top-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+
+}
+
+.col-3:hover {
+    transition: all 0.3s;
+    box-shadow: 0 0.4em 0.9em black;
+}
+
+.col {
+    height: 45%;
+    width: 100%;
+    background-color: rgb(234, 234, 234);
+
+}
+
+
+
+#img {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-top-left-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+    height: 2.5em;
+}
+
+button:hover {
+    transition: all 0.3s;
+    box-shadow: 0 0.4em 0.9em black;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    height: 20em;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#columns {
+    height: 100%;
+    word-wrap: 100%;
+    border: 0.5em solid orange;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    color: rgb(99, 99, 99);
+    background-color: rgb(219, 218, 218);
+}
+
+#columns:hover {
+    transition: all 0.3s;
+    box-shadow: 0 0.4em 0.9em black;
+}
+
+input {
+    border-radius: 0.4em;
+}
+
+#pizza-info-column {
+    overflow-y: auto;
+}
+
+.submitdata {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

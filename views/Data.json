@@ -1,0 +1,58 @@
+{
+    "types": [
+        {
+            "pizzaName": "Blooming Onion & paperika",
+            "discription": "Hot & spicy pizza with a new spicy peri peri sauce and topped with onion & red",
+            "Size": "Medium",
+            "crust": "New Hand Tossed",
+            "price": "Rs 329",
+            "img": "https://images.dominos.co.in/BlazingOnionPaprikaCustom.jpg",
+            "id": 1
+        },
+        {
+            "pizzaName": "Fiery Sausage & Paprika",
+            "discription": "A super spicy chicken pizza with a new spicy peri peri sauce & topped with flavorful",
+            "Size": "Medium",
+            "crust": "New Hand Tossed",
+            "price": "Rs 449",
+            "img": "https://images.dominos.co.in/FierySausagePaprikaCustom.jpg",
+            "id": 2
+        },
+        {
+            "pizzaName": "Farmhouse",
+            "discription": "Delightful combination of onion, capsicum, tomato & grilled mushroom",
+            "Size": "Medium",
+            "crust": "New Hand Tossed",
+            "price": "Rs 554",
+            "img": "https://images.dominos.co.in/farmhouse.png",
+            "id": 3
+        },
+        {
+            "pizzaName": "Pepper Barbecue Chicken",
+            "discription": "Pepper barbecue chicken for that extra zing",
+            "Size": "Medium",
+            "crust": "New Hand Tossed",
+            "price": "Rs 445",
+            "img": "https://images.dominos.co.in/new_pepper_barbeque_chicken.jpg",
+            "id": 4
+        },
+        {
+            "pizzaName": "Margherita",
+            "discription": "Classic delight with 100% real mozzarella cheese",
+            "Size": "Medium",
+            "crust": "Pan crust",
+            "price": "Rs 245",
+            "img": "https://images.dominos.co.in/new_margherita_2502.jpg",
+            "id": 5
+        },
+        {
+            "pizzaName": "Peppy Paneer",
+            "discription": "Classic delight with 100% real mozzarella cheese",
+            "Size": "Medium",
+            "crust": "Pan crust",
+            "price": "Rs 469",
+            "img": "https://images.dominos.co.in/new_peppy_paneer.jpg",
+            "id": 6
+        }
+    ]
+}

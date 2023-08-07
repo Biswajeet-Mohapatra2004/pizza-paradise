@@ -1,0 +1,44 @@
+<%- include('./Components/head.ejs') %>
+
+    <body>
+        <%- include('./Components/navbar') %>
+            <br>
+            <br>
+            <div class="container" style="height: 25em;">
+                <form action="/<%= route %>" method="post"
+                    style="height: 100%; width: 70%; margin: 0 auto; display: flex; flex-direction: column; align-content: space-around; align-items: center; justify-content: space-around; box-shadow: 0 0.4em 0.9em black; border-top-left-radius: 0.8em; border-bottom-right-radius: 0.8em; font-size: 70%;">
+                    <h4>
+                        <%= heading %>
+                    </h4>
+                    <div>
+                        <% if(key==="username" ){ %>
+                            <label for="username"><b><i>
+                                        <%= mail %>
+                                    </i></b></label>
+                            <input type="email" name="<%= key %>" id="username">
+                            <% }else{ %>
+                                <label for="username"><b><i>
+                                            <%= mail %>
+                                        </i></b></label>
+                                <input type="text" name="<%= key %>" id="username">
+                                <% } %>
+
+                    </div>
+                    <div>
+                        <label for="password"><b><i>PASSWORD</i></b></label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <div>
+                        <button>Login</button>
+                    </div>
+                    <a href="/create" style="color: blue;"><b>Don't have an account ? Create Now</b></a>
+
+                </form>
+            </div>
+            <br>
+            <br>
+            <%- include('./Components/footer.ejs') %>
+
+    </body>
+
+    </html>

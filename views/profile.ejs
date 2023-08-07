@@ -1,0 +1,43 @@
+<%- include('./Components/head.ejs') %>
+    <title>Profile</title>
+
+    <body>
+        <%- include('./Components/navbar') %>
+            <br>
+            <div class="container" style="text-align: center; height: auto; box-shadow: 0 0.4em 0.9em black;">
+                <h1>Here is your profile, <b><i>
+                            <%= user.name %>
+                        </i></b>
+                </h1>
+                <br>
+                <div class="row">
+                    <div class="col"
+                        style="text-align: center; display: flex; flex-direction: column; align-items: flex-start;  align-self: flex-start; background-color: white;">
+                        <span><b>Name: <%= user.name %></b></span>
+                        <br>
+                        <span><b>Mail id:<%= user.username %></b></span>
+                        <br>
+                        <span><b>Contact No.:<%= user.contact %></b></span>
+                        <br>
+                        <span><b>city: <%= user.city %></b></span>
+                        <br>
+                        <span><b>State: <%= user.state %></b></span>
+                        <br>
+                        <span><b>Country: <%= user.country %></b></span>
+                        <br>
+                        <span><b>Address: <%= user.address %></b></span>
+                        <br>
+                        <span><b>UserId: <%=user.id %></b></span>
+                        <br>
+                        <span><button onclick="window.location.href='/validate-user'">Edit Data</button>
+                            <button onclick="window.location.href='/logout'">Logout</button></span>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <%- include('./Components/footer.ejs') %>
+    </body>
+
+    </html>
