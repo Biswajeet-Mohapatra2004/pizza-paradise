@@ -177,8 +177,6 @@ app.post('/login', (req, res) => {
     if (user) {
         // IsLogin = true;
         req.session.user = user;
-        console.log(secretKey);
-        console.log(req.session.user);
         res.redirect('/product')
     }
     else {
