@@ -131,6 +131,7 @@ let IsLogin = false;
 
 app.post('/add-to-cart', (req, res) => {
     if (req.session.user) {
+        console.log(req.session.user);
         const data = req.body;
         const Quantity = data.Quantity;
         const title = "Cart";
@@ -141,7 +142,7 @@ app.post('/add-to-cart', (req, res) => {
             }
         }
         setTimeout(() => {
-            res.render('Cart.ejs', { pizzaData, Quantity, count, user, title });
+            res.render('cart.ejs', { pizzaData, Quantity, count, user, title });
         }, 3000)
 
     }
@@ -176,6 +177,8 @@ app.post('/login', (req, res) => {
     if (user) {
         // IsLogin = true;
         req.session.user = user;
+        console.log(secretKey);
+        console.log(req.session.user);
         res.redirect('/product')
     }
     else {
