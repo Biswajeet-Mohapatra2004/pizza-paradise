@@ -16,7 +16,7 @@ app.listen(port, () => {
 
 // adding the uuid package by npm installing it for getting unique id's
 const { v4: uuid } = require('uuid');
-const secretKey = uuid();
+const secretKey = 'log123120hahsjk';
 
 // adding a session management middleware
 const session = require('express-session');
