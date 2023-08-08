@@ -142,6 +142,7 @@ app.post('/add-to-cart', (req, res) => {
             }
         }
         setTimeout(() => {
+            const user = req.session.user;
             res.render('cart.ejs', { pizzaData, Quantity, count, user, title });
         }, 3000)
 
@@ -153,6 +154,7 @@ app.post('/add-to-cart', (req, res) => {
 app.get('/login', (req, res) => {
     if (req.session.user) {
         let title = "Profile";
+        const user = req.session.user;
         res.render('profile.ejs', { user, title })
     }
     else {
