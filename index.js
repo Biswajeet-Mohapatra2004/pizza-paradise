@@ -2,7 +2,7 @@ const { profile } = require('console');
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.set('view engine', 'ejs');
 // setting the path for the views folder so that it can be accesed outside the program folder
@@ -13,6 +13,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port, () => {
     console.log(`listening at port:${port}`);
 })
+
+// adding the uuid package by npm installing it for getting unique id's
+const { v4: uuid } = require('uuid');
+const secretKey = uuid();
+
+// adding a session management middleware
+const session = require('express-session');
+app.use(session({ secret: secretKey, resave: false, saveUninitialized: false }));
+
+
+
 // for parsing the post request we need to use req.body
 
 // req.body==> contains key-value pairs of data submitted in the request body. By default it is undefined. and is populated when we use body parsing middleware such as express.json() or express.urlencoded().
@@ -24,8 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 // to parse the json files we use the express.json() middleware
 app.use(express.json());
 
-// adding the uuid package by npm installing it for getting unique id's
-const { v4: uuid } = require('uuid');
+
 const pizzaData = [
     {
         "name": "Blooming Onion & paperika",
@@ -120,7 +130,7 @@ app.get('/about', (req, res) => {
 let IsLogin = false;
 
 app.post('/add-to-cart', (req, res) => {
-    if (IsLogin) {
+    if (req.session.user) {
         const data = req.body;
         const Quantity = data.Quantity;
         const title = "Cart";
@@ -140,7 +150,7 @@ app.post('/add-to-cart', (req, res) => {
     }
 })
 app.get('/login', (req, res) => {
-    if (IsLogin) {
+    if (req.session.user) {
         let title = "Profile";
         res.render('profile.ejs', { user, title })
     }
@@ -164,7 +174,8 @@ app.post('/login', (req, res) => {
     const { username, password } = req.body;
     user = userdata.find((p) => p.password === password);
     if (user) {
-        IsLogin = true;
+        // IsLogin = true;
+        req.session.user = user;
         res.redirect('/product')
     }
     else {
@@ -173,8 +184,16 @@ app.post('/login', (req, res) => {
 })
 // adding route to logout
 app.get('/logout', (req, res) => {
-    IsLogin = false;
-    res.redirect('/home');
+    // IsLogin = false;
+    // res.redirect('/home');
+    req.session.destroy((err) => {
+        if (err) {
+            res.send('Error while logging out!');
+        }
+        else {
+            res.redirect('/home');
+        }
+    })
 })
 // adding a route to create a user
 app.get('/create', (req, res) => {
